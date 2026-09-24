@@ -1,6 +1,8 @@
 from fastapi_offline import FastAPIOffline
 import sqlite3
 
+
+
 app = FastAPIOffline()
 
 
@@ -10,17 +12,17 @@ def create_user(name: str, age: int):
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
 
+
+
     cursor.execute(
-        "INSERT INTO users (name, age) VALUES (?, ? )",
-        (name, age)
-    )
+        "INSERT INTO users (name, age) VALUES (?, ? )",(name, age))
 
     conn.commit()
     conn.close()
 
-    return {
-        "message": "User created"
-    }
+    return {"message": "User created"}
+
+
 
 
 
@@ -34,9 +36,9 @@ def get_users():
 
     conn.close()
 
-    return {
-        "users": users
-    }
+    return {"users": users}
+
+
 
 
 
@@ -45,17 +47,14 @@ def update_user(user_id: int, name: str, age: int):
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
 
-    cursor.execute(
-        "UPDATE users SET name = ?, age = ? WHERE id = ?",
-        (name, age, user_id)
-    )
+    cursor.execute("UPDATE users SET name = ?, age = ? WHERE id = ?",(name, age, user_id) )
 
     conn.commit()
     conn.close()
 
-    return {
-        "message": "User updated"
-    }
+    return {"message": "User updated" }
+
+
 
 
 
@@ -64,14 +63,9 @@ def delete_user(user_id: int):
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
 
-    cursor.execute(
-        "DELETE FROM users WHERE id = ?",
-        (user_id,)
-    )
+    cursor.execute("DELETE FROM users WHERE id = ?",(user_id,))
 
     conn.commit()
     conn.close()
 
-    return {
-        "message": "User deleted"
-    }
+    return {"message": "User deleted"}
