@@ -1,0 +1,92 @@
+FastAPI
+
+Introduction
+
+FastAPI is a modern and high-performance Python web framework used to build APIs. It is easy to learn and helps developers create APIs quickly and efficiently.
+
+What is an API?
+
+An API (Application Programming Interface) allows different applications to communicate and exchange data with each other.
+
+Features of FastAPI
+
+- High performance
+- Easy to learn and use
+- Automatic API documentation
+- Data validation using Python type hints
+- Support for asynchronous programming
+- Integration with databases
+- Suitable for building REST APIs
+
+Installation
+
+Install FastAPI using pip:
+
+pip install "fastapi[standard]"
+
+Getting Started
+
+Create a Python file named "main.py" and write the following code:
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "Hello, FastAPI!"}
+
+Running the Application
+
+Run the application using the following command:
+
+fastapi dev main.py
+
+The application will be available at:
+
+"http://127.0.0.1:8000"
+
+API Documentation
+
+FastAPI automatically generates interactive API documentation.
+
+- Swagger UI: "/docs"
+- ReDoc: "/redoc"
+
+You can use these pages to explore and test your API.
+
+HTTP Methods
+
+Common HTTP methods used in FastAPI include:
+
+- GET: Retrieve data.
+- POST: Create new data.
+- PUT: Update existing data.
+- DELETE: Delete data.
+
+Example API Endpoint
+
+@app.get("/users")
+def get_users():
+    return {"users": ["Ali", "Sara", "Reza"]}
+
+When you visit "/users", the API returns a JSON response containing a list of users.
+
+Applications of FastAPI
+
+FastAPI can be used for:
+
+- Building REST APIs
+- Developing backend services
+- Connecting applications to databases
+- Creating machine learning APIs
+- Connecting frontend applications to Python backends
+
+Useful Resources
+
+- Official Documentation: https://fastapi.tiangolo.com/
+- GitHub Repository: https://github.com/fastapi/fastapi
+
+Conclusion
+
+FastAPI is a powerful Python framework for building modern APIs. Its simplicity, performance, and automatic documentation make it a useful tool for backend development.
